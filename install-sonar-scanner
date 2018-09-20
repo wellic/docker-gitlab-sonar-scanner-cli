@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -u
+set -e
+
+BIN_PATH=${SONAR_SCANNER_ROOT_DIR}/${SONAR_SCANNER_ARC_DIRNAME}/bin
+find "${BIN_PATH}/sonar-scanner"* -exec basename {} \; | xargs -I {} ln -s "${BIN_PATH}/{}" /usr/bin/{}
