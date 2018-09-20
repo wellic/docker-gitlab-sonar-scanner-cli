@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 ENV SONAR_SCANNER_ROOT_DIR "/sonar-scanner"
 
-RUN apk add --no-cache wget \
+RUN apk add --no-cache wget nodejs \
     && mkdir -p "$SONAR_SCANNER_ROOT_DIR"
 
 ## It was written using info http://stackoverflow.com/a/40612088/865222
@@ -15,8 +15,7 @@ WORKDIR /
 
 RUN wget -q "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/${SONAR_SCANNER_ARC_FILENAME}" \
     && unzip -q "${SONAR_SCANNER_ARC_FILENAME}" -d "${SONAR_SCANNER_ROOT_DIR}" \
-    && rm "${SONAR_SCANNER_ARC_FILENAME}" \
-    && apk del wget
+    && rm "${SONAR_SCANNER_ARC_FILENAME}"
 
 COPY install-sonar-scanner /install-sonar-scanner
 
