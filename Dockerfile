@@ -4,7 +4,6 @@ ENV SONAR_SCANNER_ROOT_DIR "/sonar-scanner"
 
 RUN apk --update add --no-cache wget git openssh\
     && rm -rf /var/lib/apt/lists/* \
-    && rm /var/cache/apk/* \
     && mkdir -p "$SONAR_SCANNER_ROOT_DIR"
 
 ## It was written using info http://stackoverflow.com/a/40612088/865222
