@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 ENV SONAR_SCANNER_ROOT_DIR "/sonar-scanner"
 
-RUN apk --update add --no-cache wget git openssh\
+RUN apk --update add --no-cache wget git openssh nodejs\
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p "$SONAR_SCANNER_ROOT_DIR"
 
